@@ -68,56 +68,6 @@ cd scribbly
 npm install
 ```
 
-### 3. Firebase Configuration
-
-1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
-2. Enable Authentication with Email/Password sign-in method
-3. Create a Firestore database
-4. Get your Firebase configuration:
-   - Go to Project Settings
-   - Scroll down to "Your apps"
-   - Click on the web app icon
-   - Copy the configuration object
-
-5. Update the Firebase configuration in `src/firebase.js`:
-```javascript
-const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "your-sender-id",
-  appId: "your-app-id"
-};
-```
-
-### 4. Firestore Security Rules
-
-Set up the following security rules in your Firestore database:
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Users can only read/write their own user document
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-    
-    // Users can only read/write their own notes
-    match /notes/{noteId} {
-      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
-      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
-    }
-    
-    // Users can only read/write their own labels
-    match /labels/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-  }
-}
-```
-
 ### 5. Run the Application
 ```bash
 npm start
@@ -152,64 +102,6 @@ The application will open at `http://localhost:3000`
 - Labels are automatically saved to your account
 - Use the filter dropdown to show notes with specific labels
 
-## API Usage Examples
-
-### Get User Data
-```javascript
-const userDoc = await getDoc(doc(db, 'users', userId));
-const userData = userDoc.data(); // {name: "John", email: "john@example.com"}
-```
-
-### Get User's Notes
-```javascript
-const q = query(
-  collection(db, 'notes'),
-  where('userId', '==', userId),
-  orderBy('isPinned', 'desc'),
-  orderBy('timeStamp', 'desc')
-);
-const notesSnapshot = await getDocs(q);
-const notes = notesSnapshot.docs.map(doc => ({
-  id: doc.id,
-  ...doc.data()
-}));
-```
-
-### Create New Note
-```javascript
-await addDoc(collection(db, 'notes'), {
-  userId: userId,
-  title: "New Note",
-  content: "Note content",
-  isPinned: false,
-  backgroundColor: "#FFFFFF",
-  timeStamp: Date.now(),
-  labels: ["work"],
-  checkList: "[]"
-});
-```
-
-### Update Labels
-```javascript
-await setDoc(doc(db, 'labels', userId), {
-  labels: ["work", "personal", "new-label"]
-});
-```
-
-## Checklist Structure
-```javascript
-[
-  {
-    "text": "Task 1",
-    "isChecked": false
-  },
-  {
-    "text": "Task 2", 
-    "isChecked": true
-  }
-]
-```
-
 ## Contributing
 
 1. Fork the repository
@@ -221,7 +113,3 @@ await setDoc(doc(db, 'labels', userId), {
 ## License
 
 This project is licensed under the MIT License.
-
-## Support
-
-For support, please open an issue in the GitHub repository or contact the development team.
