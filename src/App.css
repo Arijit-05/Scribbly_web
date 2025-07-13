@@ -1,38 +1,162 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  /* background-color: #f5f5f5; */
+  background-color: inherit;
+}
+
+/* Modern scrollbar styles for light and dark mode */
+body, .App {
+  scrollbar-width: thin;
+  scrollbar-color: #ffb3b3 #f5f5f5;
+}
+
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar, .App::-webkit-scrollbar {
+  width: 10px;
+  background: #f5f5f5;
+}
+body::-webkit-scrollbar-thumb, .App::-webkit-scrollbar-thumb {
+  background: #ffb3b3;
+  border-radius: 8px;
+  border: 2px solid #f5f5f5;
+}
+body::-webkit-scrollbar-thumb:hover, .App::-webkit-scrollbar-thumb:hover {
+  background: #ff6f61;
+}
+
+body[data-theme='dark'], .App[data-theme='dark'] {
+  scrollbar-color: #333 #18191A;
+}
+body[data-theme='dark']::-webkit-scrollbar, .App[data-theme='dark']::-webkit-scrollbar {
+  background: #18191A;
+}
+body[data-theme='dark']::-webkit-scrollbar-thumb, .App[data-theme='dark']::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 8px;
+  border: 2px solid #18191A;
+}
+body[data-theme='dark']::-webkit-scrollbar-thumb:hover, .App[data-theme='dark']::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Note card hover effects */
+.MuiCard-root {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating action button */
+.MuiFab-root {
+  transition: all 0.3s ease;
+}
+
+.MuiFab-root:hover {
+  transform: scale(1.1);
+}
+
+/* Dialog animations */
+.MuiDialog-paper {
+  border-radius: 12px;
+}
+
+/* Color picker buttons */
+.color-picker-button {
+  transition: all 0.2s ease;
+}
+
+.color-picker-button:hover {
+  transform: scale(1.1);
+}
+
+/* Loading states */
+.loading-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 200px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .MuiCard-root {
+    margin-bottom: 16px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Note content truncation */
+.note-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Label chips */
+.MuiChip-root {
+  margin: 2px;
+}
+
+/* Checklist items */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checklist-item.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Masonry grid styles */
+.masonry-grid {
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+}
+.masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+.masonry-grid_column > .MuiCard-root {
+  margin-bottom: 16px;
+}
+
+/* Search bar styles */
+.MuiTextField-root input {
+  border-radius: 24px;
+  font-size: 1.1rem;
+  padding: 12px 16px;
+}
+
+/* Label filter buttons */
+.MuiButton-root {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .masonry-grid {
+    margin-left: -8px;
   }
-  to {
-    transform: rotate(360deg);
+  .masonry-grid_column {
+    padding-left: 8px;
   }
+}
+
+/* Force search bar placeholder text to be white in dark mode */
+body[data-theme='dark'] .MuiTextField-root input::placeholder {
+  color: #fff !important;
+  opacity: 1;
 }
