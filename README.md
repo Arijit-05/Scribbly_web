@@ -1,4 +1,4 @@
-# Scribbly Notes - Web App
+# Scribbly - Web App
 
 A modern, responsive web application for managing notes with Firebase integration. This app allows users to create, edit, organize, and sync their notes across devices.
 
