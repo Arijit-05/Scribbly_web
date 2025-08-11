@@ -1,87 +1,89 @@
-# Scribbly - Web App
+# Scribbly Web: A Note-Taking Web Application
+![thumbnail](./public/assets/landingPage-df6fafa6-e610-4c24-996c-b9a26ad8d75d)
 
-A modern, responsive web application for managing notes with Firebase integration. This app allows users to create, edit, organize, and sync their notes across devices.
+## 🗂️ Description
 
-## Features
+Scribbly Web is a modern note-taking web application designed to help users organize their thoughts and ideas efficiently. This project is perfect for individuals who want a simple yet feature-rich platform to jot down notes, categorize them, and access them from anywhere. Scribbly Web utilizes React, Firebase, and Material UI to provide a seamless user experience.
 
-- 🔐 **User Authentication**: Sign up and sign in with email/password
-- 📝 **Note Management**: Create, edit, and delete notes
-- 🏷️ **Labels**: Organize notes with custom labels
-- 📌 **Pin Notes**: Pin important notes to the top
-- 🎨 **Color Coding**: Choose from 12 different background colors
-- ☑️ **Checklists**: Add interactive checklists to your notes
-- 🔍 **Filtering**: Filter notes by labels
-- 📱 **Responsive Design**: Works on desktop, tablet, and mobile
-- ☁️ **Cloud Sync**: All data is synced with Firebase
+The application allows users to create, edit, and delete notes, as well as categorize them using labels and pin important notes for easy access. It also features a rich text editor for note creation and supports dark mode for comfortable usage.
 
-## Screenshots
-<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/41311bc3-01c3-488e-bd5a-953e4238c1a3" />
-<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/a4704ba3-1a31-4ff0-89f5-46f5bc81729c" />
-<img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/734def03-609f-4d3c-ad89-bb8274641993" />
+## ✨ Key Features
 
+### 📝 Note Management
 
-## Tech Stack
+* Create, edit, and delete notes
+* Categorize notes using labels
+* Pin important notes for easy access
 
-- **Frontend**: React 19, Material-UI
-- **Backend**: Firebase (Authentication, Firestore)
-- **Routing**: React Router DOM
-- **State Management**: React Context API
+### 🔒 Authentication
 
-## Setup Instructions
+* User authentication using Firebase Authentication
+* Protected routes for authenticated users only
 
-### 1. Clone the Repository
-```bash
-git clone <repository-url>
-cd scribbly
+### 🎨 User Interface
+
+* Responsive design for optimal viewing on various devices
+* Dark mode support for comfortable usage
+* Rich text editor for note creation
+
+### ⚡️ Performance
+
+* Optimized for fast loading and rendering
+* Utilizes modern web technologies for a seamless experience
+
+## 🗂️ Folder Structure
+
+```mermaid
+graph TD;
+src-->components;
+src-->contexts;
+src-->pages;
+src-->firebase.js;
+src-->reportWebVitals.js;
+src-->setupTests.js;
+components-->Navigation.js;
+components-->NoteEditor.js;
+components-->Login.js;
+components-->Signup.js;
+components-->PrivateRoute.js;
+contexts-->AuthContext.js;
 ```
 
-### 2. Install Dependencies
-```bash
-npm install
-```
+## 🛠️ Tech Stack
 
-### 5. Run the Application
-```bash
-npm start
-```
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=white&style=for-the-badge)
+![Material UI](https://img.shields.io/badge/Material%20UI-0081CB?logo=mui&logoColor=white&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=white&style=for-the-badge)
 
-The application will open at `http://localhost:3000`
+## ⚙️ Setup Instructions
 
-## Usage
+To run the project locally, follow these steps:
 
-### Authentication
-- Sign up with your email and password
-- Sign in with your credentials
-- Your session will persist until you log out
+* Git clone the repository: `https://github.com/Arijit-05/Scribbly_web.git`
+* Install dependencies: `npm install`
+* Start the development server: `npm start`
+* Open your browser and navigate to `http://localhost:3000`
 
-### Creating Notes
-1. Click the floating "+" button to create a new note
-2. Add a title and content
-3. Choose a background color
-4. Add labels for organization
-5. Create checklist items if needed
-6. Pin the note if it's important
-7. Click "Create" to save
+## 📁 GitHub Actions
 
-### Managing Notes
-- **Edit**: Click the edit icon on any note
-- **Delete**: Click the delete icon (with confirmation)
-- **Pin**: Use the pin checkbox in the note editor
-- **Filter**: Use the label filter dropdown to show specific notes
+The project uses GitHub Actions for continuous integration and deployment. The workflow is configured to:
 
-### Labels
-- Add labels while creating or editing notes
-- Labels are automatically saved to your account
-- Use the filter dropdown to show notes with specific labels
+* Run tests on push and pull requests
+* Deploy the application to a hosting platform on successful builds
 
-## Contributing
+No additional configuration is required to set up GitHub Actions. The workflow is defined in the `.github/workflows` directory.
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
-## License
 
-This project is licensed under the MIT License.
+<br><br>
+<div align="center">
+<img src="https://avatars.githubusercontent.com/u/98471219?v=4" width="120" />
+<h3>Arijit</h3>
+<p>Developer and coder passionate about innovative solutions.</p>
+</div>
+<br>
+<p align="right">
+<img src="https://gitfull.vercel.app/appLogo.png" width="20"/>  <a href="https://gitfull.vercel.app">Made by GitFull</a>
+</p>
+    
